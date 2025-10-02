@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reciclar-vision"
+version = "0.1.0"
+description = "ReciclAR Vision - image-based waste classification system"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "ReciclAR Vision Team" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "numpy",
+    "fastapi",
+    "uvicorn[standard]",
+    "pillow",
+    "torch",
+    "torchvision",
+    "scikit-learn",
+    "albumentations",
+    "pydantic",
+    "python-multipart",
+    "streamlit",
+    "gradio",
+    "matplotlib",
+    "seaborn"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "ruff",
+    "mypy",
+    "pre-commit"
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I", "B", "UP", "ANN"]
+ignore = []
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+strict = false
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests"
+]
